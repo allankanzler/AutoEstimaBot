@@ -32,7 +32,7 @@ function action(event){
       }
     })
     //reply  
-    Tweet.post(`statuses/update/`,{in_reply_to_status_id:id_str, status:'Acredite em seu potencial'}, erro => { 
+    Tweet.post(`statuses/update/`,{in_reply_to_status_id:id_str, status:'@'+screen_name+' Acredite em seu potencial'}, erro => { 
         if(erro){
         return  console.log("Erro no REPLY: " + erro)
           // Caso haja um erro, informamos no console o mesmo
