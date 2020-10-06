@@ -32,11 +32,10 @@ function action(event){
       }
     })
     //reply
-    Tweet.post('statuses/update', {status: 'Acredite em seu potencial'}, {in_reply_to_status_id: id_str},  erro, tweet => {
-        if(erro){
-        return console.log("Erro no reply: " + erro) ;
-        }else {        
-        return console.log("reply tweet");  // Tweet body.        
+    Tweet.post('statuses/update', {status: 'Acredite em seu potencial'}, {in_reply_to_status_id: id_str},   function(error, tweet, response) {
+        if(error) throw error;
+        console.log(tweet);  // Tweet body.
+        console.log(response);  // Raw response object.    
         }      
     });
 //'@' + tweet.user.screen_name + ' True that' ,{in_reply_to_status_id: tweet.id_str}, callback)
