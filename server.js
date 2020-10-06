@@ -32,12 +32,16 @@ function action(event){
       }
     })
     //reply
-    Tweet.post('statuses/update', {status: 'Acredite em seu potencial'}, {in_reply_to_status_id: id_str},   function(error, tweet, response) {
-        if(error) throw error;
-        console.log(tweet);  // Tweet body.
-        console.log(response);  // Raw response object.    
-              
-    });
+         
+    var response = '@' + screen_name + ' ' + 'Acredite em seu potencial'
+    Tweet.post('statuses/update', {
+        // To reply we need the id of tweet we're replying to.
+        in_reply_to_status_id: id_str,
+        // Status is the content of the tweet, we set it to the response string we made above.
+        status:response
+        // After we tweet we use a callback function to check if our tweet has been succesful.
+    }, onTweeted)
+
 //'@' + tweet.user.screen_name + ' True that' ,{in_reply_to_status_id: tweet.id_str}, callback)
   }else {
        return 
