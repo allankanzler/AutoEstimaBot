@@ -27,22 +27,21 @@ function action(event){
         return console.log("Erro no like: " + erro) 
         // Caso haja algum erro, jogar no console para verificarmos.
       }else {
-        return console.log("Tweet Likado. URL do Tweet: " + `https:twitter.com/${screen_name}/status/${id_str}`) 
+        console.log("Tweet Likado. URL do Tweet: " + `https:twitter.com/${screen_name}/status/${id_str}`) 
         // Se der tudo certo, avisar no console com o URL do tweet original
       }
     })
-    //reply
-         
-    var response = '@' + screen_name + ' ' + 'Acredite em seu potencial'
-    Tweet.post('statuses/update', {
-        // To reply we need the id of tweet we're replying to.
-        in_reply_to_status_id: id_str,
-        // Status is the content of the tweet, we set it to the response string we made above.
-        status:response
-        // After we tweet we use a callback function to check if our tweet has been succesful.
-    })
+    //reply  
+    Tweet.post(`statuses/update/`,{in_reply_to_status_id:id_str, status:'Acredite em seu potencial'}, erro => { 
+        if(erro){
+        return  console.log("Erro no REPLY: " + erro)
+          // Caso haja um erro, informamos no console o mesmo
+        }else {
+        return  console.log("REPLIED: ", `https://twitter.com/${name}/status/${id_str}`)
+          // Se der tudo certo, informamos no console junto com o URL do tweet retweetado
+        }
+      }) // Retweetar o tweet, e caso haja um erro, avisar no console. Se não, avisa
 
-//'@' + tweet.user.screen_name + ' True that' ,{in_reply_to_status_id: tweet.id_str}, callback)
   }else {
        return 
        // Caso as condições não sejam atendidas, retornar a função vazia, indo para o próximo tweet
