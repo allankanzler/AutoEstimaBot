@@ -24,7 +24,7 @@ function action(event){
     }) // Retweetar o tweet, e caso haja um erro, avisar no console. Se não, avisar no console que deu certo com o id do tweet
     Tweet.post('favorites/create', {id: id_str}, erro => { // Dar like no tweet
       if(erro){
-        return console.log("Erro no like: " + erro) 
+        console.log("Erro no like: " + erro) 
         // Caso haja algum erro, jogar no console para verificarmos.
       }else {
         console.log("Tweet Likado. URL do Tweet: " + `https:twitter.com/${screen_name}/status/${id_str}`) 
@@ -32,7 +32,7 @@ function action(event){
       }
     })
     //reply  
-    Tweet.post(`statuses/update/`,{in_reply_to_status_id:id_str, status:'@'+screen_name+' Acredite em seu potencial'}, erro => { 
+    Tweet.post(`statuses/update`,{in_reply_to_status_id:id_str, status:'@'+screen_name+' Acredite em seu potencial'}, erro => { 
         if(erro){
         return  console.log("Erro no REPLY: " + erro)
           // Caso haja um erro, informamos no console o mesmo
