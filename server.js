@@ -40,7 +40,7 @@ function action(event){
         // Status is the content of the tweet, we set it to the response string we made above.
         status:response
         // After we tweet we use a callback function to check if our tweet has been succesful.
-    }, onTweeted)
+    })
 
 //'@' + tweet.user.screen_name + ' True that' ,{in_reply_to_status_id: tweet.id_str}, callback)
   }else {
