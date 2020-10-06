@@ -22,6 +22,7 @@ function action(event){
         // Se der tudo certo, informamos no console junto com o URL do tweet retweetado
 //      }
 //    }) // Retweetar o tweet, e caso haja um erro, avisar no console. Se não, avisar no console que deu certo com o id do tweet
+    console.log("Tweet " + `https:twitter.com/${screen_name}/status/${id_str}`) 
     Tweet.post('favorites/create', {id: id_str}, erro => { // Dar like no tweet
       if(erro){
         console.log("Erro no like: " + erro) 
@@ -46,6 +47,7 @@ function action(event){
        return 
        // Caso as condições não sejam atendidas, retornar a função vazia, indo para o próximo tweet
      }
+
 }
 var stream = Tweet.stream('statuses/filter', {track: 'consigo'}) 
 // Aqui dizemos para o programa verificar em modo streaming
