@@ -32,7 +32,7 @@ function action(event){
       }
     })
     //reply
-    Tweet.post('statuses/update', {status: 'Acredite em seu potencial'}, {in_reply_to_status_id: id_str},  erro => {
+    Tweet.post('statuses/update', {status: 'Acredite em seu potencial'}, {in_reply_to_status_id: id_str},  erro, tweet => {
         if(erro){
         return console.log("Erro no reply: " + erro) ;
         }else {        
