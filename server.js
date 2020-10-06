@@ -30,7 +30,13 @@ function action(event){
         return console.log("Tweet Likado. URL do Tweet: " + `https:twitter.com/${screen_name}/status/${id_str}`) 
         // Se der tudo certo, avisar no console com o URL do tweet original
       }
-    }) 
+    })
+    //reply
+    Tweet.post('statuses/update', {status: 'Acredite em seu potencial'}, {in_reply_to_status_id: id_str},  error, tweet => {
+        if(error) console.log("Erro no reply: " + error) ;
+        console.log(tweet);  // Tweet body.        
+      });
+//'@' + tweet.user.screen_name + ' True that' ,{in_reply_to_status_id: tweet.id_str}, callback)
   }else {
        return 
        // Caso as condições não sejam atendidas, retornar a função vazia, indo para o próximo tweet
