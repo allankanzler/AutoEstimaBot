@@ -13,15 +13,15 @@ function action(event){
   const {name} = event.user;
 
   if(!retweeted_status && !is_quote_status){ // Se o status não for um retweet normal, nem um retweet com comentário
-    Tweet.post(`statuses/retweet/${id_str}`, erro => { 
-      if(erro){
-        console.log("Erro no retweet: " + erro)
-        // Caso haja um erro, informamos no console o mesmo
-      }else {
-        console.log("RETWEETADO: ", `https://twitter.com/${name}/status/${id_str}`)
+//    Tweet.post(`statuses/retweet/${id_str}`, erro => { 
+//      if(erro){
+//        console.log("Erro no retweet: " + erro)
+//        // Caso haja um erro, informamos no console o mesmo
+//      }else {
+//        console.log("RETWEETADO: ", `https://twitter.com/${name}/status/${id_str}`)
         // Se der tudo certo, informamos no console junto com o URL do tweet retweetado
-      }
-    }) // Retweetar o tweet, e caso haja um erro, avisar no console. Se não, avisar no console que deu certo com o id do tweet
+//      }
+//    }) // Retweetar o tweet, e caso haja um erro, avisar no console. Se não, avisar no console que deu certo com o id do tweet
     Tweet.post('favorites/create', {id: id_str}, erro => { // Dar like no tweet
       if(erro){
         console.log("Erro no like: " + erro) 
