@@ -13,13 +13,13 @@ function action(event){
   const {name} = event.user;
 
   if(!retweeted_status && !is_quote_status){ 
-    console.log("Tweet " + `https:twitter.com/${screen_name}/status/${id_str}`) 
+    console.log("Tweet " + `https:twitter.com/${name}/status/${id_str}`) 
     Tweet.post('favorites/create', {id: id_str}, erro => { // Dar like no tweet
       if(erro){
         console.log("Erro no like: " + erro) 
         // Caso haja algum erro, jogar no console para verificarmos.
       }else {
-        console.log("Tweet Likado. URL do Tweet: " + `https:twitter.com/${screen_name}/status/${id_str}`) 
+        console.log("Tweet Likado. URL do Tweet: " + `https:twitter.com/${name}/status/${id_str}`) 
         // Se der tudo certo, avisar no console com o URL do tweet original
       }
     })
