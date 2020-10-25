@@ -33,20 +33,20 @@ function action(event){
       }
     })
     //reply  
-    Tweet.post(`statuses/update`,{in_reply_to_status_id:id_str, status:'@'+screen_name+' Acredite em seu potencial'}, erro => { 
-        if(erro){
-        return  console.log("Erro no REPLY: " + erro)
-          // Caso haja um erro, informamos no console o mesmo
-        }else {
-        return  console.log("REPLIED: ", `https://twitter.com/${name}/status/${id_str}`)
+ //   Tweet.post(`statuses/update`,{in_reply_to_status_id:id_str, status:'@'+screen_name+' Acredite em seu potencial'}, erro => { 
+ //       if(erro){
+ //       return  console.log("Erro no REPLY: " + erro)
+ //         // Caso haja um erro, informamos no console o mesmo
+ //       }else {
+ //       return  console.log("REPLIED: ", `https://twitter.com/${name}/status/${id_str}`)
           // Se der tudo certo, informamos no console junto com o URL do tweet retweetado
         }
-      }) // Retweetar o tweet, e caso haja um erro, avisar no console. Se não, avisa
+  //    }) // Retweetar o tweet, e caso haja um erro, avisar no console. Se não, avisa
 
-  }else {
-       return 
+  //}else {
+  //     return 
        // Caso as condições não sejam atendidas, retornar a função vazia, indo para o próximo tweet
-     }
+   //  }
 
 }
 var stream = Tweet.stream('statuses/filter', {track: 'consigo'}) 
